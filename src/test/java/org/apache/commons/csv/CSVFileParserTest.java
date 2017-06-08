@@ -90,11 +90,15 @@ public class CSVFileParserTest {
     @Test
     public void testCSVFile() throws Exception {
         String line = readTestData();
+        System.out.println("testCSVFile() | line : "+line); // debug message
         assertNotNull("file must contain config line", line);
         final String[] split = line.split(" ");
-        assertTrue(testName + " require 1 param", split.length >= 1);
+        System.out.println("testCSVFile() | split.length : "+split.length); // debug message
+        assertTrue(testName + " require 1 param", split.length >= 1); 
+        System.out.println("testCSVFile() | split.length > 1 "); // debug message
         // first line starts with csv data file name
         CSVFormat format = CSVFormat.newFormat(',').withQuote('"');
+        System.out.println("testCSVFile() | format created "); // debug message
         boolean checkComments = false;
         for (int i = 1; i < split.length; i++) {
             final String option = split[i];
